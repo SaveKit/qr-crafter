@@ -1,0 +1,23 @@
+# backend/.gitignore
+
+# Dependencies / Packages
+# โฟลเดอร์ที่เก็บแพ็คเกจทั้งหมด (สำคัญที่สุด)
+node_modules/
+
+# Environment Variables
+# ไฟล์เก็บค่าตัวแปรสำคัญ เช่น API Keys, รหัสผ่าน (ห้ามเก็บใน Git เด็ดขาด)
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+# ไฟล์ Log ที่เกิดจากการรันโปรแกรมหรือตอน Error
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+# ไฟล์ขยะที่สร้างโดยระบบปฏิบัติการ
+.DS_Store
+Thumbs.db
