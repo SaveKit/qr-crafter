@@ -1,16 +1,15 @@
 // backend/index.js
 const express = require('express');
 const QRCode = require('qrcode');
-const cors = require('cors'); // นำเข้า cors
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 4000; // ใช้สำหรับตอน Deploy
 
-// ใช้งาน cors middleware
 app.use(cors());
 
 app.get('/api/generate', async (req, res) => {
-  const { data, size = '256x256' } = req.query; // กำหนดขนาด default
+  const { data, size = '256x256' } = req.query;
 
   if (!data) {
     return res.status(400).json({ error: 'Data is required' });
@@ -25,7 +24,6 @@ app.get('/api/generate', async (req, res) => {
       errorCorrectionLevel: 'H'
     });
 
-    // ส่งกลับเป็น PNG Buffer
     const imageBuffer = Buffer.from(qrCodeDataURL.split(',')[1], 'base64');
     res.writeHead(200, { 'Content-Type': 'image/png' });
     res.end(imageBuffer);

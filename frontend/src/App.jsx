@@ -17,7 +17,7 @@ function App() {
     setIsLoading(true);
     setQrCodeUrl('');
 
-    const apiUrl = `http://localhost:4000/api/generate?data=${encodeURIComponent(data)}&size=${size}`;
+    const apiUrl = `${import.meta.env.VITE_API_URL}/api/generate?data=${encodeURIComponent(data)}&size=${size}`;
 
     try {
       const response = await fetch(apiUrl);
